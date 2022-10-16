@@ -1,0 +1,19 @@
+INPUT:
+  MAX_SEQ_LEN: 10
+
+DATASET:
+  NAME: 'flickr30k'
+  VOCAB_SIZE: 5497
+  DATA_PICKLE: 'data/flickr30k/flickr30k_refs_pseudo.pkl'
+  VOCAB_PICKLE: 'data/flickr30k/flickr30k_vocab.pkl'
+  TRAIN: 'trainval'
+  DEV: 'test'
+  TEST: 'test'
+
+OUTPUT:
+  SAVE_NAME: 'flickr30k'
+  CHECKPOINT_DIR: './exp/dual'
+
+PRETRAINED:
+  SPEAKER_CHECKPOINT_PATH: './exp/speaker/flickr30k_21Y_12M_10D_11H/pytorch_model_5.bin'
+  LISTENER_CHECKPOINT_PATH: './exp/listener/flickr30k_21Y_12M_14D_14H/pytorch_model_5.bin'

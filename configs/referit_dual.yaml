@@ -1,0 +1,31 @@
+INPUT:
+  MAX_SEQ_LEN: 20
+
+DATASET:
+  NAME: 'referit'
+  VOCAB_SIZE: 8802
+  DATA_PICKLE: 'data/referit/referit_refs_pseudo.pkl'
+  VOCAB_PICKLE: 'data/referit/referit_vocab.pkl'
+  TRAIN: 'trainval'
+  DEV: 'test'
+  TEST: 'test'
+
+OUTPUT:
+  SAVE_NAME: 'referit_dual_listener_bs_64_lr_3e-5_lrdecay_3_true_warmlr_3e-6_speaker_bs_128_lr_4e-4_lrdecay_5_true_warmlr_4e-5'
+  CHECKPOINT_DIR: './exp/dual'
+
+OPTIMIZATION:
+  EPOCHS: 30
+  BATCH_SIZE: 128
+  LISTENER_LR: 3e-6
+  SPEAKER_LR: 4e-5
+  CLIP_MAX_NORM: 0.1
+  LR_DECAY_FREQ: 5
+  OPTIMIZE_SPEAKER: True
+  OPTIMIZE_LISTENER: True
+  REWARD_THRESHOLD: 0.9
+  TOPK: 5
+
+PRETRAINED:
+  SPEAKER_CHECKPOINT_PATH: './exp/speaker/referit_warmup_speaker_bs_128_lr_4e-4_lrdecay_5_22Y_10M_11D_21H/pytorch_model_30.bin'
+  LISTENER_CHECKPOINT_PATH: './exp/listener/referit_warmup_listener_bs_64_lr_3e-5_lrdecay_3_22Y_10M_11D_17H/pytorch_model_30.bin'

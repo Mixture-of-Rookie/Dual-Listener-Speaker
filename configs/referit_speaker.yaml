@@ -1,0 +1,23 @@
+INPUT:
+  MAX_SEQ_LEN: 20
+
+DATASET:
+  NAME: 'referit'
+  VOCAB_SIZE: 8802
+  DATA_PICKLE: 'data/referit/referit_refs_pseudo.pkl'
+  VOCAB_PICKLE: 'data/referit/referit_vocab.pkl'
+  EVAL_SPEAKER_JSON: 'data/referit/speaker_groundtruth_test.json'
+  TRAIN: 'trainval'
+  DEV: 'test'
+  TEST: 'test'
+
+OUTPUT:
+  SAVE_NAME: 'referit_warmup_speaker_bs_128_lr_4e-4_lrdecay_5'
+  CHECKPOINT_DIR: './exp/speaker'
+
+OPTIMIZATION:
+  EPOCHS: 30
+  BATCH_SIZE: 128
+  SPEAKER_LR: 4e-4
+  CLIP_MAX_NORM: 0.1
+  LR_DECAY_FREQ: 5

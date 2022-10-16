@@ -1,0 +1,16 @@
+INPUT:
+  MAX_SEQ_LEN: 10
+
+DATASET:
+  NAME: 'flickr30k'
+  VOCAB_SIZE: 5497
+  DATA_PICKLE: 'data/flickr30k/flickr30k_refs_pseudo.pkl'
+  VOCAB_PICKLE: 'data/flickr30k/flickr30k_vocab.pkl'
+  TRAIN: 'trainval'
+  DEV: 'test'
+  TEST: 'test'
+
+OUTPUT:
+  SAVE_NAME: 'flickr30k'
+  CHECKPOINT_DIR: './exp/listener'
+
